@@ -34,6 +34,8 @@ export class Collapse extends React.PureComponent {
     onRender: PropTypes.func,
     onRest: PropTypes.func,
     onMeasure: PropTypes.func,
+    from: PropTypes.number,
+    to: PropTypes.number,
 
     children: PropTypes.node.isRequired
   };
@@ -47,7 +49,9 @@ export class Collapse extends React.PureComponent {
     theme: css,
     onRender: noop,
     onRest: noop,
-    onMeasure: noop
+    onMeasure: noop,
+    to: 0,
+    from: 0
   };
 
 
@@ -55,8 +59,8 @@ export class Collapse extends React.PureComponent {
     super(props);
     this.state = {
       currentState: IDLING,
-      from: 0,
-      to: 0
+      from: this.props.from,
+      to: this.props.to
     };
   }
 
